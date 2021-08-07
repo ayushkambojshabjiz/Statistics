@@ -1,0 +1,103 @@
+from tkinter import *
+import statistics
+import tkinter as tk 
+from tkinter import messagebox
+from tkinter import filedialog as fd 
+
+
+value_mean=[2,5,6,9]
+meanfinal=statistics.mean(value_mean)
+print("result of mean:",meanfinal)
+
+value_median=[1,2,3,8,9]
+median_final=statistics.median(value_median)
+print("result of median:",median_final)
+
+value_mode=[2,5,3,2,8,3,9,4,2,5,6]
+mode_final=statistics.mode(value_mode)
+print("result of mode:",mode_final)
+
+value_sd=[1,1.5,2,2.5,3,3.5,4,4.5,5]
+sd_final=statistics.stdev(value_sd)
+print("result of sd:",sd_final)
+
+
+def browse():
+       name= fd.askopenfilename() 
+       messagebox.showinfo( "File Selection", name)
+
+  
+# c
+root = Tk() 
+root.title("GUI APP - Correlation in Python")
+root.minsize(500, 500) 
+
+
+
+lab_1 = Label(root, text = 'Select the data file .xls/.xlsx', font =('Arial', 14))
+lab_1.pack(side = "top", pady = 10) 
+
+browse_btn = tk.Button(root, text = 'Browse', command=browse, height = 1, width = 7)
+browse_btn.pack(side = RIGHT )
+browse_btn.place(x=400, y=100)
+
+result = Label(root, text = 'Result is: ', font =('Arial', 14), fg='blue')
+result.pack(side = "top", pady = 10)
+result.place(x=170, y=150)
+
+result_fianl = Label(root, text = 'null', font =('Arial', 14), fg='blue')
+result_fianl.pack(side = "top", pady = 10)
+result_fianl.place(x=260, y=150)
+
+
+def mean():
+       
+        result_fianl.config(text=meanfinal)
+
+        
+
+def median():
+       
+        result_fianl.config(text=median_final)
+
+def mode():
+       
+        result_fianl.config(text=mode_final)
+
+def sd():
+       
+        result_fianl.config(text=sd_final)
+mean_btn = tk.Button(root, text = 'Mean', command=mean, height = 1, width = 7)
+mean_btn.pack(side = RIGHT )
+mean_btn.place(x=100, y=210)
+
+median_btn = tk.Button(root, text = 'Median', command=median, height = 1, width = 7)
+median_btn.pack(side = RIGHT )
+median_btn.place(x=100, y=260)
+
+mode_btn = tk.Button(root, text = 'Mode', command=mode, height = 1, width = 7)
+mode_btn.pack(side = RIGHT )
+mode_btn.place(x=400, y=210)
+
+sd_btn = tk.Button(root, text = 'SD', command=sd, height = 1, width = 7)
+sd_btn.pack(side = RIGHT )
+sd_btn.place(x=400, y=260)
+
+quitbtn = Button(root, text = 'Quit',command=root.destroy, fg='red', height = 1, width = 7)
+quitbtn.pack(side = BOTTOM)
+quitbtn.place(x=230, y=350)
+
+
+
+
+
+
+
+        
+mainloop()
+
+
+
+  
+
+        
